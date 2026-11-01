@@ -1,0 +1,3 @@
+model,training_peak_mib,inference_peak_mib
+Logistic Regression,229.18,229.18
+Random Forest,229.87,230.05
