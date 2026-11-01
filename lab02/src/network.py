@@ -36,12 +36,16 @@ def forward(X, params):
 
     return probabilities
 
+def cross_entropy(probabilities, labels):
+    safe_probabilities = np.clip(probabilities, 1e-12, 1.0)
+    return -np.mean(np.sum(labels * np.log(safe_probabilities), axis=1))
+
 if __name__ == "__main__":
     np.random.seed(42)
-    X, _ = load_digits(return_X_y=True)
+    X, y = load_digits(return_X_y=True)
     X = X / 16.0
     batch = X[:32]
-
+    labels = np.eye(10)[y[:32]]
     for width in [16, 64]:
         W1, b1, W2, b2, W3, b3 = init_params(width)
 
@@ -56,3 +60,5 @@ if __name__ == "__main__":
         print("Row sums close to 1:", np.allclose(
             probabilities.sum(axis=1), 1.0, rtol=0, atol=1e-6
         ))
+        loss = cross_entropy(probabilities, labels)
+        print(f"Untrained loss: {loss:.4f}")
