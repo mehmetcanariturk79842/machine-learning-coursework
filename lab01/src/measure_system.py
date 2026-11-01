@@ -74,3 +74,8 @@ with open("lab01/results/system_metrics.csv", "w", newline="") as file:
         "model_size_kib",
     ])
     writer.writerows(rows)
+saved_models = {
+    "logistic_regression": joblib.load("lab01/results/logistic_regression.joblib"),
+    "random_forest": joblib.load("lab01/results/random_forest.joblib"),
+}
+joblib.dump(saved_models, "lab01/results/model.joblib")

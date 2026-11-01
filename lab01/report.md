@@ -19,7 +19,7 @@ baseline models, and measure their accuracy and system costs.
 - **Inference time:** One warm-up prediction, followed by 100 timed
   single-sample predictions. The median is reported in milliseconds.
 - **Model size:** Each model was saved separately using joblib. File
-  size was recorded in bytes and KiB.
+  size was recorded in bytes and KiB.Both models are also stored together in `results/model.joblib`.
 - **Memory:** Peak Python process memory was sampled with
   `memory_profiler` during training and 100 inference calls.
 
