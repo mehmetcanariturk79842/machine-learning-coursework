@@ -56,7 +56,7 @@ for name, model in models.items():
     size_bytes = model_path.stat().st_size
     size_kb = size_bytes / 1024
 
-    print(f"{name} model size: {size_bytes} bytes ({size_kb:.2f} KB)")
+    print(f"{name} model size: {size_bytes} bytes ({size_kb:.2f} KiB)")
     rows.append([
         name,
         f"{median(training_times):.6f}",
@@ -71,6 +71,6 @@ with open("lab01/results/system_metrics.csv", "w", newline="") as file:
         "training_median_seconds",
         "inference_median_ms",
         "model_size_bytes",
-        "model_size_kb",
+        "model_size_kib",
     ])
     writer.writerows(rows)
