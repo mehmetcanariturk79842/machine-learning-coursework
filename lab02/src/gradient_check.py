@@ -1,9 +1,14 @@
 import numpy as np
+import random
+import torch
 from sklearn.datasets import load_digits
 
 from network import init_params, forward, cross_entropy, backward
 
 np.random.seed(42)
+random.seed(42)
+torch.manual_seed(42)
+torch.cuda.manual_seed_all(42)
 
 X, y = load_digits(return_X_y=True)
 X = X / 16.0

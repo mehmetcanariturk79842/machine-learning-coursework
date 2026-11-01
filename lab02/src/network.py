@@ -1,4 +1,6 @@
 import numpy as np
+import random
+import torch
 from sklearn.datasets import load_digits
 
 
@@ -64,6 +66,9 @@ def backward(params, cache, labels):
 
 if __name__ == "__main__":
     np.random.seed(42)
+    random.seed(42)
+    torch.manual_seed(42)
+    torch.cuda.manual_seed_all(42)
     X, y = load_digits(return_X_y=True)
     X = X / 16.0
     batch = X[:32]
