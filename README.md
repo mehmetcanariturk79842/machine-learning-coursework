@@ -24,3 +24,19 @@ python lab01/src/baseline.py
 python lab01/src/measure_system.py
 python lab01/src/measure_memory.py
 ```
+
+## Lab 2
+
+Lab 2 builds a two-hidden-layer neural network from scratch using the
+digits dataset. The report and results are in `lab02/`.
+
+Run the scripts from the project root:
+
+```powershell
+python lab02/src/prepare_data.py
+python lab02/src/network.py
+python lab02/src/gradient_check.py
+python lab02/src/train.py
+python lab02/src/plot_loss.py
+python lab02/src/timing.py
+```
