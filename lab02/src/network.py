@@ -34,11 +34,33 @@ def forward(X, params):
     z3 = a2 @ W3 + b3
     probabilities = softmax(z3)
 
-    return probabilities
+    cache = (X, z1, a1, z2, a2, probabilities)
+    return probabilities, cache
 
 def cross_entropy(probabilities, labels):
     safe_probabilities = np.clip(probabilities, 1e-12, 1.0)
     return -np.mean(np.sum(labels * np.log(safe_probabilities), axis=1))
+
+def backward(params, cache, labels):
+    W1, b1, W2, b2, W3, b3 = params
+    X, z1, a1, z2, a2, probabilities = cache
+
+    N = labels.shape[0]
+
+    dZ3 = (probabilities - labels) / N
+    dW3 = a2.T @ dZ3
+    db3 = np.sum(dZ3, axis=0)
+    dA2 = dZ3 @ W3.T
+    dZ2 = dA2 * (z2 > 0)
+
+    dW2 = a1.T @ dZ2
+    db2 = np.sum(dZ2, axis=0)
+    dA1 = dZ2 @ W2.T
+    dZ1 = dA1 * (z1 > 0)
+
+    dW1 = X.T @ dZ1
+    db1 = np.sum(dZ1, axis=0)
+    return dW1, db1, dW2, db2, dW3, db3
 
 if __name__ == "__main__":
     np.random.seed(42)
@@ -54,7 +76,7 @@ if __name__ == "__main__":
         print("W2:", W2.shape, "b2:", b2.shape)
         print("W3:", W3.shape, "b3:", b3.shape)
         params = (W1, b1, W2, b2, W3, b3)
-        probabilities = forward(batch, params)
+        probabilities, cache = forward(batch, params)
 
         print("Output shape:", probabilities.shape)
         print("Row sums close to 1:", np.allclose(
@@ -62,3 +84,7 @@ if __name__ == "__main__":
         ))
         loss = cross_entropy(probabilities, labels)
         print(f"Untrained loss: {loss:.4f}")
+        gradients = backward(params, cache, labels)
+
+        for param, gradient in zip(params, gradients):
+            print("Parameter:", param.shape, "Gradient:", gradient.shape)
