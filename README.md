@@ -40,3 +40,19 @@ python lab02/src/train.py
 python lab02/src/plot_loss.py
 python lab02/src/timing.py
 ```
+
+## Lab 3
+
+Lab 3 compares MLP, CNN and attention models on Fashion-MNIST.
+The report and results are in `lab03/`.
+
+Run the scripts from the project root:
+
+```powershell
+python lab03/src/data_setup.py
+python lab03/src/check_models.py
+python lab03/src/flop_check.py
+python lab03/src/train.py
+python lab03/src/latency.py
+python lab03/src/plot_results.py
+```
