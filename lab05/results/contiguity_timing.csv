@@ -1,0 +1,4 @@
+tensor,median_ms
+contiguous,0.419850
+non-contiguous view,0.480850
+view made contiguous first,4.082600

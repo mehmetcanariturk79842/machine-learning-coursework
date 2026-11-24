@@ -1,0 +1,28 @@
+FX graph of the model
+graph():
+    %input_1 : [num_users=1] = placeholder[target=input]
+    %_0 : [num_users=1] = call_module[target=0](args = (%input_1,), kwargs = {})
+    %_1 : [num_users=1] = call_module[target=1](args = (%_0,), kwargs = {})
+    %_2 : [num_users=1] = call_module[target=2](args = (%_1,), kwargs = {})
+    %_3 : [num_users=1] = call_module[target=3](args = (%_2,), kwargs = {})
+    return _3
+Autograd graph (from output back to the parameters)
+  SigmoidBackward0
+    AddmmBackward0
+      struct torch::autograd::AccumulateGrad
+      ReluBackward0
+        AddmmBackward0
+          struct torch::autograd::AccumulateGrad
+          TBackward0
+            struct torch::autograd::AccumulateGrad
+      TBackward0
+        struct torch::autograd::AccumulateGrad
+
+torch.compile graphs captured: 0
+torch.compile supported on this machine: False
+Mode used for comparison: traced
+
+Tensor inspection
+original: shape=(2000, 2000), dtype=torch.float32, stride=(2000, 1), contiguous=True
+transposed view: shape=(2000, 2000), dtype=torch.float32, stride=(1, 2000), contiguous=False
+Same memory: True

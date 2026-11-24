@@ -1,0 +1,5 @@
+batch_size,mode,median_ms
+1,eager,0.012900
+1,traced,0.009800
+1000,eager,0.036800
+1000,traced,0.032700
