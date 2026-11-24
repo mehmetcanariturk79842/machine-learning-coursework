@@ -1,0 +1,50 @@
+Rows checked: 48842
+Missing columns: []
+
+Type check
+age: expected int, found int64 -> OK
+workclass: expected category, found category -> OK
+fnlwgt: expected int, found int64 -> OK
+education: expected category, found category -> OK
+education-num: expected int, found int64 -> OK
+marital-status: expected category, found category -> OK
+occupation: expected category, found category -> OK
+relationship: expected category, found category -> OK
+race: expected category, found category -> OK
+sex: expected category, found category -> OK
+capital-gain: expected int, found int64 -> OK
+capital-loss: expected int, found int64 -> OK
+hours-per-week: expected int, found int64 -> OK
+native-country: expected category, found category -> OK
+class: expected category, found category -> OK
+
+Range check
+age: allowed 17-90, found 17-90, violations=0
+hours-per-week: allowed 1-99, found 1-99, violations=0
+capital-gain: allowed 0-99999, found 0-99999, violations=0
+capital-loss: allowed 0-4356, found 0-4356, violations=0
+
+Missing values
+age: NaN=0, '?'=0
+workclass: NaN=2799, '?'=0
+fnlwgt: NaN=0, '?'=0
+education: NaN=0, '?'=0
+education-num: NaN=0, '?'=0
+marital-status: NaN=0, '?'=0
+occupation: NaN=2809, '?'=0
+relationship: NaN=0, '?'=0
+race: NaN=0, '?'=0
+sex: NaN=0, '?'=0
+capital-gain: NaN=0, '?'=0
+capital-loss: NaN=0, '?'=0
+hours-per-week: NaN=0, '?'=0
+native-country: NaN=857, '?'=0
+class: NaN=0, '?'=0
+
+Duplicates
+Exact duplicate rows: 52
+
+Summary
+Type violations: 0
+Range violations: 0
+Rows dropped: 0
