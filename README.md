@@ -56,3 +56,15 @@ python lab03/src/train.py
 python lab03/src/latency.py
 python lab03/src/plot_results.py
 ```
+
+
+## Lab 4
+
+Lab 4 builds a reproducible, leakage-free data pipeline for the UCI
+Adult dataset. The report, data card and results are in `lab04/`.
+
+Run the whole pipeline from the project root with one command:
+
+```powershell
+python lab04/src/run_pipeline.py
+```
