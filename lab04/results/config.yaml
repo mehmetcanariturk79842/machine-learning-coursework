@@ -1,0 +1,27 @@
+dataset:
+  name: adult
+  source: fetch_openml(name='adult', version=2, as_frame=True)
+  raw_rows: 48842
+  raw_columns: 15
+split:
+  test_size: 0.3
+  stratify: class
+  random_state: 42
+cleaning:
+  numeric_imputer: median
+  categorical_imputer: most_frequent
+  clip_percentiles:
+  - 1
+  - 99
+  drop_duplicates: train only
+features:
+- capital_net = capital-gain - capital-loss
+- hours_per_age = hours-per-week / (age - 16)
+seed: 42
+processed_data:
+  train:
+    path: data/processed/adult_train.csv
+    sha256: ce9f7a8654c80b90388c923c3e5a2b501a94cd76c9b561f9e9b7cce43e4fdf08
+  test:
+    path: data/processed/adult_test.csv
+    sha256: 3c2857cffd9adcb4ecacbfa4983406ccd38d126f58d7bb0f4608524763cd86b8
