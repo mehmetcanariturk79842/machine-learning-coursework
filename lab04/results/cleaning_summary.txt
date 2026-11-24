@@ -1,0 +1,16 @@
+Train rows after split: 34189
+Test rows after split: 14653
+Missing values in train: 4452
+Missing values in test: 2013
+Duplicates dropped from train: 24
+Train rows after dropping duplicates: 34165
+Missing values in train after cleaning: 0
+Missing values in test after cleaning: 0
+
+Clip bounds from train (1st / 99th percentile)
+age: 17.00 to 74.00
+fnlwgt: 27035.20 to 509629.00
+education-num: 3.00 to 16.00
+capital-gain: 0.00 to 15024.00
+capital-loss: 0.00 to 1980.00
+hours-per-week: 8.00 to 80.00
