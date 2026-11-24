@@ -1,0 +1,8 @@
+Duplicate-conflict audit
+Feature groups with conflicting labels: 5
+Rows in these groups: 10
+
+Re-check of 50 random rows
+Rows checked: 50
+Rows with missing values: 3
+Impossible values found: 0
