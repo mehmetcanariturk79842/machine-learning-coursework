@@ -68,3 +68,19 @@ Run the whole pipeline from the project root with one command:
 ```powershell
 python lab04/src/run_pipeline.py
 ```
+
+
+## Lab 5
+
+Lab 5 builds a scalar automatic-differentiation engine, checks it
+against PyTorch, and compares eager and traced execution.
+The report and results are in `lab05/`.
+
+Run the scripts from the project root:
+
+```powershell
+python lab05/src/engine.py
+python lab05/src/gradient_check.py
+python lab05/src/train_moons.py
+python lab05/src/execution_modes.py
+```
