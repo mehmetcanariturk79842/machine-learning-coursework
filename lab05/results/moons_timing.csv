@@ -1,0 +1,3 @@
+framework,final_loss,accuracy,median_training_seconds
+engine,0.255827,0.8750,39.0316
+pytorch,0.255827,0.8750,0.0191
